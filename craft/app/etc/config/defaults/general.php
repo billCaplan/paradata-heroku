@@ -166,12 +166,12 @@ return array(
 	/**
 	 * The default permissions Craft will use when creating a file on the file system.
 	 */
-	'defaultFilePermissions' => 0664,
+	'defaultFilePermissions' => 0777,
 
 	/**
 	 * The default permissions Craft will use when creating a folder on the file system.
 	 */
-	'defaultFolderPermissions' => 0775,
+	'defaultFolderPermissions' => 0777,
 
 	/**
 	 * The quality level Craft will use when saving JPG and PNG files. Ranges from 0 (worst quality, smallest file) to
