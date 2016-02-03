@@ -84,7 +84,7 @@
                     {% for entry in craft.entries.section('home').find() %}
                     {% set image = entry.image.first() %}
                     {% set tags = entry.tags.first() %}
-                      {% if image and tags == "homeQuestions" %}
+                      {% if tags == "homeQuestions" %}
 
 
                       <div class="slide darkgray-txt center score-pane" style="display:none;" id="{{i}}" >
