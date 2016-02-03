@@ -11,6 +11,33 @@ Mid Gray		 | #ccc
 Dark Gray	     | #222
 --------------------------
 */
+.leftbutton{
+  content: "<";
+  font-size: 400%;
+  color: #0387ab;
+  margin-right: 20px;
+  height: 100px;
+  cursor: pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.rightbutton{
+  content: ">";
+  font-size: 400%;
+  color: #0387ab;
+  margin-left: 20px;
+  height: 100px;
+  cursor: pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.leftbutton:hover{
+color: #75bbce;
+}
+
+.rightbutton:hover{
+  color: #75bbce;
+}
 .panel-row-style {
     background-position: center !important;
 }

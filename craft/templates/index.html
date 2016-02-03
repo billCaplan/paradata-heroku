@@ -27,29 +27,27 @@
     $('#'+current).show();
   });
 
-  function previous(){
+  function previous(numOfObjects){
     $('#'+current).hide();
-    if (current === 0){
-      current = 3;
+    if (current == 0){
+      current = numOfObjects-1;
     } else {
       current -= 1
     }
     $('#'+current).show();
   };
 
-  function next(){
+  function next(numOfObjects){
     $('#'+current).hide();
-    if (current === 3){
+    if (current == numOfObjects-1){
       current = 0;
     } else {
       current += 1
     }
     $('#'+current).show();
   };
-
-
-
 </script>
+
 <title>{{title}}</title>
                   <!-- Homepage Header -->
                   {% for entry in craft.entries.section('home').section('home').slug('home-header') %}
@@ -76,38 +74,42 @@
 
 
                   <!--Homepage scores  -->
-                  <div class="slider full slides center">
+            <div class="slider full slides center">
 
-                    {% set i = 0 %}
-                    {% set currentShown = 0%}
-                    {% set current = 0 %}
-                    {% for entry in craft.entries.section('home').find() %}
-                    {% set image = entry.image.first() %}
-                    {% set tags = entry.tags.first() %}
-                      {% if image and tags == "homeQuestions" %}
+              {% set numOfObjects = 0 %}
+              {% set i = 0 %}
+              {% set current = 0 %}
 
-
-                      <div class="slide darkgray-txt center score-pane" style="display:none;" id="{{i}}" >
-
-                        <a class="datascore middle lightgray-bg" >
-                          <img class="full" src="{{image.url}}">
-                        </a>
-                        <h3>{{entry.title}}</h3>
-                        <p>{{entry.body}}</p>
-                        <p>
-                          <a href="#">Learn more</a>
-                        </p>
-
-                      </div>
-
-                      {% set i = i + 1%}
-                      {% endif %}
-                    {% endfor %}
+              {% for entry in craft.entries.section('home').find() %}
+                {% set image = entry.image.first() %}
+                {% set tags = entry.tags.first() %}
+                  {% if image and tags == "homeQuestions" %}
 
 
-                    <button onclick="previous()">Previous</button>
-                    <button onclick="next()">Next</button>
-                </div>
+                  <div class="slide darkgray-txt center score-pane" style="display:none;" id="{{i}}" >
+
+                    <a class="datascore middle lightgray-bg" >
+                      <img class="full" src="{{image.url}}">
+                    </a>
+                    <h3>{{entry.title}}</h3>
+                    <p>{{entry.body}}</p>
+                    <p>
+
+                    </p>
+
+                  </div>
+                  {% set numOfObjects = numOfObjects + 1%}
+                  {% set i = i + 1%}
+                  {% endif %}
+                {% endfor %}
+              <label class="middle center">
+                <span class="leftbutton" onclick="previous({{numOfObjects}})"><</span>
+
+                <span class="rightbutton"onclick="next({{numOfObjects}})">></span>
+              </label>
+              <p></p>
+              <br>
+          </div>
 
 
                 <!--Homepage video  -->
