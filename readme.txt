@@ -1,21 +1,34 @@
-Welcome to Craft!!!
+Welcome to Paradata using Craft CMR
 
-Here are some online resources you might find useful:
+This product is based on a modular approach.  Each post in Craft should be tagged with a specific tag, which in turn will create a new object on the page.
+
+To create a new page, just create a new Structure with the desired page name.  All posts will be under the desired pages Structure.
+When you create a new structure, it automatically creates a new page, no further set up required.
+Pages will be populated with all the content in its Structure, in the order on the Craft Dashboard. 
+
+The avaliable tags are:
+<!-- Picture header area -->
+"pictureArea"
+
+<!-- Text header area -->
+"textArea"
 
 
-Craft Docs
------------------------------------------------------------------
-Installation instructions and much more.
-https://craftcms.com/docs
+  <!-- For regular posts -->
+"post"
+
+  <!-- for videos-->
+"videoObject"
+
+<!-- Picture objects -->
+"pictureObject"
+
+<!--  List object,  must have a list parent, with the objects as children-->
+"listParent"
 
 
-Craft Updates
------------------------------------------------------------------
-Release notes with bug fixes, improvements and additions.
-https://craftcms.com/updates
+<!-- Three Wide Grid  children required-->
+"threeWideGrid"
 
-
-Craft Stack Exchange
------------------------------------------------------------------
-A great place to ask your Craft questions, meet the awesome Craft community and earn mad reputation.
-https://craftcms.stackexchange.com/
+<!-- Dual Pane object  children required-->
+"dualPane"
