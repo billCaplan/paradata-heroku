@@ -55,7 +55,7 @@
                   {% for entry in craft.entries.section('home').section('home').slug('home-header') %}
                   {% set image = entry.image.first() %}
 
-                  <div class="hero full" data-parallax="scroll" data-image-src="{{image.url}}" >
+                  <div class="hero full" data-parallax="scroll" data-image-src="{{image.path}}" >
                     <div class="wrapper middle pad">
                       <h1>
                       {{entry.title}}
@@ -90,7 +90,7 @@
                       <div class="slide darkgray-txt center score-pane" style="display:none;" id="{{i}}" >
 
                         <a class="datascore middle lightgray-bg" >
-                          <img class="full" src="{{image.url}}">
+                          <img class="full" src="{{image.path}}">
                         </a>
                         <h3>{{entry.title}}</h3>
                         <p>{{entry.body}}</p>
@@ -116,7 +116,7 @@
                       <div class="wrapper middle pad">
                         <h3 class="center">{{entry.title}}</h3>
                         <video class="middle" width="500" height="281" frameborder="0" controls>
-                          <source src="{{video.url}}" type="video/mp4">
+                          <source src="{{video.path}}" type="video/mp4">
                           Your browser does not support HTML5 video. Please download a modern browser, like <a href="https://www.google.com/chrome/browser/desktop/">Google Chrome</a>.
                         </video>
                       </div>
