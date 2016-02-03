@@ -20,14 +20,109 @@
 {% extends "_layout" %}
 
 {% block content %}
-	<h1>{{ entry.title }}</h1>
 
-	{{ entry.body }}
+<script type="text/javascript">
+  var current = 0;
+  $(document).ready(function(){
+    $('#'+current).show();
+  });
 
-	<h2>Recent News</h2>
-	<ul>
-		{% for entry in craft.entries.section('news').limit(5).find() %}
-			<li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
-		{% endfor %}
-	</ul>
+  function previous(){
+    $('#'+current).hide();
+    if (current === 0){
+      current = 3;
+    } else {
+      current -= 1
+    }
+    $('#'+current).show();
+  };
+
+  function next(){
+    $('#'+current).hide();
+    if (current === 3){
+      current = 0;
+    } else {
+      current += 1
+    }
+    $('#'+current).show();
+  };
+
+
+
+</script>
+<title>{{title}}</title>
+                  <!-- Homepage Header -->
+                  {% for entry in craft.entries.section('home').section('home').slug('home-header') %}
+                  {% set image = entry.image.first() %}
+
+                  <div class="hero full" data-parallax="scroll" data-image-src="{{image.url}}" >
+                    <div class="wrapper middle pad">
+                      <h1>
+                      {{entry.title}}
+                      </h1>
+                      <div style="width:100%;max-width:350px;">
+                      {{entry.body}}
+                    </div>
+                      <a class="button" href="#">Get your data score</a>
+                    </div>
+
+                  </div>
+                </div>
+                  {% endfor %}
+
+
+
+
+
+
+                  <!--Homepage scores  -->
+                  <div class="slider full slides center">
+
+                    {% set i = 0 %}
+                    {% set currentShown = 0%}
+                    {% set current = 0 %}
+                    {% for entry in craft.entries.section('home').find() %}
+                    {% set image = entry.image.first() %}
+                    {% set tags = entry.tags.first() %}
+                      {% if image and tags == "homeQuestions" %}
+
+
+                      <div class="slide darkgray-txt center score-pane" style="display:none;" id="{{i}}" >
+
+                        <a class="datascore middle lightgray-bg" >
+                          <img class="full" src="{{image.url}}">
+                        </a>
+                        <h3>{{entry.title}}</h3>
+                        <p>{{entry.body}}</p>
+                        <p>
+                          <a href="#">Learn more</a>
+                        </p>
+
+                      </div>
+
+                      {% set i = i + 1%}
+                      {% endif %}
+                    {% endfor %}
+                    <button onclick="previous()">Previous</button>
+                    <button onclick="next()">Next</button>
+                </div>
+
+
+                <!--Homepage video  -->
+                  {% for entry in craft.entries.section('home').find() %}
+                  {% set video = entry.video.first() %}
+                    {% if video %}
+                    <div class="intro full">
+                      <div class="wrapper middle pad">
+                        <h3 class="center">{{entry.title}}</h3>
+                        <video class="middle" width="500" height="281" frameborder="0" controls>
+                          <source src="{{video.url}}" type="video/mp4">
+                          Your browser does not support HTML5 video. Please download a modern browser, like <a href="https://www.google.com/chrome/browser/desktop/">Google Chrome</a>.
+                        </video>
+                      </div>
+                    </div>
+                    {% endif %}
+                  {% endfor %}
+
+
 {% endblock %}
