@@ -103,8 +103,12 @@
                       {% set i = i + 1%}
                       {% endif %}
                     {% endfor %}
-                    <button onclick="previous()">Previous</button>
-                    <button onclick="next()">Next</button>
+
+<button id="prev" class="slidenav" click="previous()"><span class="icon-arrow_left"></span></button>
+<button id="next" class="slidenav" click="next()"><span class="icon-arrow_right"></span></button>
+
+
+
                 </div>
 
 
