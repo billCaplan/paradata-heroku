@@ -146,7 +146,28 @@
 
 
 
-        {% if tags == "dualPane" %}
+
+    {% if tags == "dualPane" %}
+      <div class="lightgray-bg full">
+          <div class="wrapper">
+            {% set entries = entry.getChildren() %}
+            {% for entry in entries %}
+            <div class="half pad link" >
+              <div class="full center" style="border:4px solid;border-color:#418CAE">
+                        <h3>{{entry.title}}
+                <p>
+                  {{entry.body}}
+                </p>
+
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+    {% endif %}
+
+
+        {% if tags == "dualPaneMap" %}
             <div class="lightgray-bg full">
         		<div class="wrapper">
         			<div class="half pad link">
