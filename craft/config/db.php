@@ -9,18 +9,20 @@
 
 return array(
 
+	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
 	// The database server name or IP address. Usually this is 'localhost' or '127.0.0.1'.
-	'server' => 'mysql://bb4facee42109f:217f7d67@us-cdbr-iron-east-03.cleardb.net/heroku_85aea75a5cc5df7?reconnect=true',
+	'server' => $url["host"],
 
 
 	// The database username to connect with.
-	'user' => 'bb4facee42109f',
+	'user' => $url["user"],
 
 	// The database password to connect with.
-	'password' => '217f7d67',
+	'password' => $url["pass"],
 
 	// The name of the database to select.
-	'database' => 'heroku_85aea75a5cc5df7',
+	'database' => substr($url["path"], 1),
 
 	// The prefix to use when naming tables. This can be no more than 5 characters.
 	'tablePrefix' => 'craft',
