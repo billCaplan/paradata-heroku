@@ -54,8 +54,9 @@
                   <!-- Homepage Header -->
                   {% for entry in craft.entries.section('home').section('home').slug('home-header') %}
                   {% set image = entry.image.first() %}
+            
 
-                  <div class="hero full" data-parallax="scroll" data-image-src="{{image.path}}" >
+                  <div class="hero full" data-parallax="scroll" data-image-src="../public/assets/background-homepage-1.jpg" >
                     <div class="wrapper middle pad">
                       <h1>
                       {{entry.title}}
