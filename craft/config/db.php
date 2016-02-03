@@ -10,7 +10,7 @@
 return array(
 
 	// The database server name or IP address. Usually this is 'localhost' or '127.0.0.1'.
-	'server' => $url[“host”],
+	'server' => 'mysql://bb4facee42109f:217f7d67@us-cdbr-iron-east-03.cleardb.net/heroku_85aea75a5cc5df7?reconnect=true',
 
 
 	// The database username to connect with.
