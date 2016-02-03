@@ -111,7 +111,7 @@
                 <!--Homepage video  -->
                   {% for entry in craft.entries.section('home').find() %}
                   {% set video = entry.video.first() %}
-                    {% if video %}
+                    {% if tags == "homeVideo" %}
                     <div class="intro full">
                       <div class="wrapper middle pad">
                         <h3 class="center">{{entry.title}}</h3>
